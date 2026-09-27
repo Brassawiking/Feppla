@@ -11,7 +11,7 @@ export default ($example) => $example.innerHTML = dev.syntax.html`
     Toggle details
   </button>
 
-  ${when(() => showDetails, () => `
+  ${when(() => showDetails, () => dev.syntax.html`
     <p>Showing more details</p>	
   `)}
 `

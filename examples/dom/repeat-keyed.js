@@ -25,7 +25,7 @@ export default ($example) => $example.innerHTML = dev.syntax.html`
     ${repeat({ 
       items: () => items, 
       key: (x) => x.name 
-    }, (getItem, getIndex) => `
+    }, (getItem, getIndex) => dev.syntax.html`
       <li>
         #${text(() => getIndex())}: ${text(() => getItem().name)}
       </li>

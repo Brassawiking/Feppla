@@ -22,7 +22,7 @@ export default ($example) => $example.innerHTML = dev.syntax.html`
   </button>
 
   <ul>
-    ${repeat(() => items, (getItem, getIndex) => `
+    ${repeat(() => items, (getItem, getIndex) => dev.syntax.html`
       <li>
         #${text(() => getIndex())}: ${text(() => getItem().name)}
       </li>

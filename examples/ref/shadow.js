@@ -6,7 +6,7 @@ let showContent = false
 
 export default ($example) => $example.innerHTML = dev.syntax.html`
   <div ${ref()
-    .shadow(`
+    .shadow(dev.syntax.html`
       Shadow content:
       <button ${ref()
         .on('click', () => { showContent = !showContent })
@@ -14,7 +14,7 @@ export default ($example) => $example.innerHTML = dev.syntax.html`
         Toggle slotted content
       </button>
 
-      ${when(() => showContent, () => `
+      ${when(() => showContent, () => dev.syntax.html`
         <p>
           <slot></slot>
         </p>

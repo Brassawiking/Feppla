@@ -14,6 +14,7 @@ export const createFeppla = (options) => {
   }
 
   for (const key of Object.keys(feppla.dev)) {
+    if (typeof feppla.dev[key] !== 'function') continue
     feppla.dev[key] = feppla.dev[key].bind(feppla)
   }
   

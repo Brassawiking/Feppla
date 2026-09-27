@@ -1,9 +1,9 @@
 /* EXAMPLE */
 import { createFeppla } from '../../src/feppla.js'
-const { ref } = createFeppla()
+const { ref, dev } = createFeppla()
 
 export default ($example) => {
-  $example.innerHTML = `
+  $example.innerHTML = dev.syntax.html`
     <div id="ref-explicit-node"></div>
   `
 

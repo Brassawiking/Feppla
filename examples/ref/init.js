@@ -4,12 +4,12 @@ import flatpickrStyle from "https://unpkg.com/flatpickr@4.6.13/dist/flatpickr.mi
 document.adoptedStyleSheets.push(flatpickrStyle)
 
 import { createFeppla } from '../../src/feppla.js'
-const { ref, dom: { text, when } } = createFeppla()
+const { ref, dom: { text, when }, dev } = createFeppla()
 
 let showDatepicker = false
 let date = '2026-10-04'
 
-export default ($example) => $example.innerHTML = `
+export default ($example) => $example.innerHTML = dev.syntax.html`
   <button ${ref()
     .on('click', () => { showDatepicker = !showDatepicker})
   }>

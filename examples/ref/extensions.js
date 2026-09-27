@@ -4,7 +4,7 @@ import flatpickrStyle from "https://unpkg.com/flatpickr@4.6.13/dist/flatpickr.mi
 document.adoptedStyleSheets.push(flatpickrStyle)
 
 import { createFeppla } from '../../src/feppla.js'
-const { ref, dom: { text } } = createFeppla({
+const { ref, dom: { text }, dev } = createFeppla({
   extensions: {
     ref: {
       datepicker(getValue, setValue) {
@@ -22,7 +22,7 @@ const { ref, dom: { text } } = createFeppla({
 
 let date = '2026-10-04'
 
-export default ($example) => $example.innerHTML = `
+export default ($example) => $example.innerHTML = dev.syntax.html`
   <input ${ref()
     .datepicker(() => date, (value) => date = value)
   }>

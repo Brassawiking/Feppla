@@ -2,6 +2,10 @@ const hmrEnabled = !!import.meta.hot
 
 export const createDev = (extensions) => {
   return {
+    syntax: {
+      html: String.raw
+    },
+
     hot(importMetaHot, createInstance) {
       if (!hmrEnabled) {
         return (...options) => createInstance.apply({}, options)

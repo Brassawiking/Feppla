@@ -1,11 +1,11 @@
 /* EXAMPLE */
 import { createFeppla } from '../../src/feppla.js'
-const { ref, dom: { text } } = createFeppla()
+const { ref, dom: { text }, dev } = createFeppla()
 
 const Counter = (initialValue = 0) => {
   let counter = initialValue
 
-  return `
+  return dev.syntax.html`
     <div>
       <button ${ref()
         .on('click', () => { counter++ })

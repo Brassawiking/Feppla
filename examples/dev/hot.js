@@ -4,7 +4,7 @@ const { ref, dom: { repeat, text }, dev } = createFeppla()
 
 const counters = [0, 42, -5]
 
-export default ($example) => $example.innerHTML = `
+export default ($example) => $example.innerHTML = dev.syntax.html`
   <button ${ref()
     .on('click', () => { counters.push(0) })
   }>
@@ -28,7 +28,7 @@ export const Counter = dev.hot(import.meta.hot, function (
   
   this.counter ??= initialValue
 
-  return `
+  return dev.syntax.html`
     <div>
       <button ${ref()
         .on('click', () => { this.counter++ })

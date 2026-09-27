@@ -22,11 +22,11 @@ export const Example = dev.hot(import.meta.hot, function (
   })
 
   const getSourceCode = () => raw
-    ?.split('/* EXAMPLE */')[1]
+    ?.split('/* EXAMPLE */')[1] // Remove HMR injected code
     .trim()
-    .replace(`'../../src/feppla.js'`, `'soon-to-be-published-feppla'`)
+    .replace(`'../../src/feppla.js'`, `'feppla'`)
 
-  return `
+  return dev.syntax.html`
     <div class="example">
       <h2 class="example--heading">
         <a href="#${example}">

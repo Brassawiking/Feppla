@@ -29,5 +29,6 @@ export const examples = [
 
   'pattern/component',
   
+  'dev/syntax',
   'dev/hot',
 ]

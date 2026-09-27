@@ -1,4 +1,4 @@
-import { ref, repeat, when } from './feppla.js'
+import { ref, repeat, when, dev } from './feppla.js'
 import { Example } from './components/Example.js'
 import packageJson from '../package.json' with { type: 'json' }
 import { examples } from './examples.js'
@@ -35,7 +35,7 @@ const clearFilter = () => {
 }
 
 
-document.querySelector('#app').innerHTML = `
+document.querySelector('#app').innerHTML = dev.syntax.html`
   <header>
     <h1>
       <span>Feppla JS</span>
@@ -48,7 +48,7 @@ document.querySelector('#app').innerHTML = `
     </span>
   </header>
 
-  ${when(() => location.hash, () => `
+  ${when(() => location.hash, () => dev.syntax.html`
     <button class="clear-filter" ${ref()
       .on('click', clearFilter)
     }>

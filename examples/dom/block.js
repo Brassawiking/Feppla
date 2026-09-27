@@ -1,8 +1,8 @@
 /* EXAMPLE */
 import { createFeppla } from '../../src/feppla.js'
-const { ref, dom: { block } } = createFeppla()
+const { ref, dom: { block }, dev } = createFeppla()
 
-export default ($example) => $example.innerHTML = `
+export default ($example) => $example.innerHTML = dev.syntax.html`
   (Before)
 
   ${block(({ startNode, endNode, clearBlock }) => {

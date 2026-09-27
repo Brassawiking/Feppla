@@ -1,8 +1,8 @@
 /* EXAMPLE */
 import { createFeppla } from '../../src/feppla.js'
-const { ref } = createFeppla()
+const { ref, dev } = createFeppla()
 
-export default ($example) => $example.innerHTML = `
+export default ($example) => $example.innerHTML = dev.syntax.html`
   <canvas width="64" height="64" ${ref()
     .init(function (el) {
       this.ctx = el.getContext('2d')

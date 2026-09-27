@@ -1,6 +1,6 @@
 /* EXAMPLE */
 import { createFeppla, nextFrame } from '../../src/feppla.js'
-const { ref, dom: { text } } = createFeppla({
+const { ref, dom: { text }, dev } = createFeppla({
   extensions: {
     ref: {
       reactive(getReactive, callback) {
@@ -22,7 +22,7 @@ const { ref, dom: { text } } = createFeppla({
 
 let counter = 0
 
-export default ($example) => $example.innerHTML = `
+export default ($example) => $example.innerHTML = dev.syntax.html`
   <button ${ref()
     .on('click', () => counter++)
   }>

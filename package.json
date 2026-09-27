@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "author": "Brassawiking",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/feppla.js"
+    }
+  },
   "scripts": {
     "start": "web-dev-server --config dev.config.js"
   },

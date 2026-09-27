@@ -1,0 +1,33 @@
+export const examples = [
+  'ref/node',
+  'ref/node-explicit',
+  'ref/node-selector',
+  'ref/state',
+  'ref/init',
+  'ref/on',
+  'ref/shadow',
+  'ref/live',
+  'ref/reactive',
+  'ref/reactive-signal',
+  'ref/reactive-stream',
+  'ref/reactive-event',
+  'ref/watch',
+  'ref/property',
+  'ref/attribute',
+  'ref/class',
+  'ref/style',
+  'ref/extensions',
+
+  'dom/modify',
+  'dom/text',
+  'dom/block',
+  'dom/html',
+  'dom/repeat',
+  'dom/repeat-keyed',
+  'dom/when',
+  'dom/when-svg',
+
+  'pattern/component',
+  
+  'dev/hot',
+]

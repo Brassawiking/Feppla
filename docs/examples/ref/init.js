@@ -23,7 +23,7 @@ export default ($example) => $example.innerHTML = dev.syntax.html`
       .property('value', () => date)
       .on('input', (event) => date = event.target.value)
       .init((el) => {
-        const picker = flatpickr(el, {})
+        const picker = flatpickr(el, { disableMobile: true })
         return () => picker.destroy()
       })
     }>

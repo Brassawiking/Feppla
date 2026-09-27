@@ -10,7 +10,7 @@ const { ref, dom: { text }, dev } = createFeppla({
       datepicker(getValue, setValue) {
         return this
           .init((el) => {
-            const picker = flatpickr(el, {})
+            const picker = flatpickr(el, { disableMobile: true })
             return () => picker.destroy()
           })
           .property('value', getValue)

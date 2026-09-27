@@ -48,6 +48,17 @@ document.querySelector('#app').innerHTML = dev.syntax.html`
     </span>
   </header>
 
+  <pre class="install-instructions"><code>${`\
+{
+  "dependencies": {
+    "feppla": "github:brassawiking/feppla"
+
+    // Or pinned version (Online docs not guaranteed to match pinned version, see local docs instead)
+    "feppla": "github:brassawiking/feppla#v${packageJson.version}"
+  }
+}
+`}</pre></code>
+
   ${when(() => location.hash, () => dev.syntax.html`
     <button class="clear-filter" ${ref()
       .on('click', clearFilter)

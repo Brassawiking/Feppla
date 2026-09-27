@@ -57,6 +57,11 @@ header {
   padding: 1em;
 }
 
+.install-instructions {
+  margin: 0;
+  overflow: auto;
+}
+
 .example {
   display: grid; 
   grid-template-columns: 3fr 2fr; 

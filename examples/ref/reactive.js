@@ -2,7 +2,7 @@
 import { createFeppla } from '../../src/feppla.js'
 const { ref, dom: { text }, dev } = createFeppla()
 
-// Default reactive implemtentation is running all getters on every frame
+// Default reactivity model is to check all getters in a global animation frame loop.
 
 let counter = 0
 

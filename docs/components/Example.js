@@ -7,7 +7,7 @@ import { ref, dev } from '../feppla.js'
 export const Example = dev.hot(import.meta.hot, function (
   example
 ) {
-  const url = new URL(`../examples/${example}.js`, location.href);
+  const url = new URL(`examples/${example}.js`, location.href);
 
   this.examplePromise ??= Promise.all([
     import(url.href), 

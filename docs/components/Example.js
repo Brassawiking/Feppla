@@ -7,7 +7,7 @@ import { ref, dev } from '../feppla.js'
 export const Example = dev.hot(import.meta.hot, function (
   example
 ) {
-  const url = new URL(`examples/${example}.js`, location.href);
+  const url = new URL(`docs/examples/${example}.js`, location.href);
 
   this.examplePromise ??= Promise.all([
     import(url.href), 
@@ -24,7 +24,7 @@ export const Example = dev.hot(import.meta.hot, function (
   const getSourceCode = () => raw
     ?.split('/* EXAMPLE */')[1] // Remove HMR injected code
     .trim()
-    .replace(`'../../src/feppla.js'`, `'feppla'`)
+    .replace(`'../../../src/feppla.js'`, `'feppla'`)
 
   return dev.syntax.html`
     <div class="example">

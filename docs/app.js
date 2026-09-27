@@ -34,7 +34,6 @@ const clearFilter = () => {
   history.replaceState(null, '', location.pathname + location.search)
 }
 
-
 document.querySelector('#app').innerHTML = dev.syntax.html`
   <header>
     <h1>

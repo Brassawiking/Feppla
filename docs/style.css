@@ -1,7 +1,6 @@
 body {
   margin: 0;
   background: transparent;
-  /* background: lightgray; */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   overflow-anchor: none;
 
@@ -9,6 +8,21 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+}
+
+#error {
+  max-width: 1024px;
+  margin: 2em auto;
+  padding: 2em;
+  background: #ff9487;
+  border-radius: 0.5em;
+  box-shadow: 0px 5px 10px 0px rgba(20, 1, 61, 0.5);
+  font-family: DM Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  font-size: 14px;
+
+  &:empty {
+    display: none;
+  }
 }
 
 #app {
@@ -52,7 +66,6 @@ header {
   padding: 1em;
   background: white;
   box-shadow: 0px 5px 10px 0px rgba(20, 1, 61, 0.5);
-  
 }
 
 .example--heading {

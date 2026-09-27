@@ -54,6 +54,8 @@ document.querySelector('#app').innerHTML = dev.syntax.html`
     "feppla": "github:brassawiking/feppla"
 
     // Or pinned version (Online docs not guaranteed to match pinned version, see local docs instead)
+    // <a href="https://github.com/Brassawiking/Feppla/tags" target="_blank">https://github.com/Brassawiking/Feppla/tags</a>
+    
     "feppla": "github:brassawiking/feppla#v${packageJson.version}"
   }
 }

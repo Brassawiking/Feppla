@@ -44,7 +44,7 @@ document.querySelector('#app').innerHTML = `
 
     <span>[ˈfɛpːla] — Swedish slang for tinkering</span>
     <span>
-      <a href="#">Github</a>
+      <a href="https://github.com/Brassawiking/Feppla">Github</a>
     </span>
   </header>
 

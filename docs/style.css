@@ -11,7 +11,7 @@ body {
 }
 
 #error {
-  max-width: 1024px;
+  max-width: 1280px;
   margin: 2em auto;
   padding: 2em;
   background: #ff9487;
@@ -26,7 +26,7 @@ body {
 }
 
 #app {
-  max-width: 1024px;
+  max-width: 1280px;
   margin: 2em auto;
   padding: 0 2em;
 
@@ -79,6 +79,8 @@ header {
 
 .example--heading {
   margin: 0;
+  min-width: 0;
+  overflow-wrap: break-word;
 
   a {
     color: blue;
@@ -99,13 +101,22 @@ header {
 .example--live {
   grid-column: 2;
   grid-row: 1 / span 2;
-
   min-width: 0;
+
   border: 1px dashed lightgray;
   border-radius: 0.5em;
   padding: 1em;
+  overflow: auto;
 }
 
 
+@media (max-width: 800px) {
+  .example {
+    grid-template-columns: 1fr;
+  }
 
-
+  .example--live {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

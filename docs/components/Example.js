@@ -1,6 +1,11 @@
 import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/es/highlight.min.js';
-import hljsStyle from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/base16/cupertino.min.css' with { type: 'css' }
-document.adoptedStyleSheets.push(hljsStyle)
+if (!document.querySelector('#hljsStyle')) {
+  const link = document.createElement('link')
+  link.id = 'hljsStyle'
+  link.rel = 'stylesheet'
+  link.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/base16/cupertino.min.css'
+  document.head.append(link)
+}
 
 import { ref, dev } from '../feppla.js'
 

@@ -1,7 +1,12 @@
 /* EXAMPLE */
 import flatpickr from 'https://unpkg.com/flatpickr@4.6.13/dist/esm/index.js'
-import flatpickrStyle from "https://unpkg.com/flatpickr@4.6.13/dist/flatpickr.min.css" with { type: "css" };
-document.adoptedStyleSheets.push(flatpickrStyle)
+if (!document.querySelector('#flatpickrStyle')) {
+  const link = document.createElement('link')
+  link.id = 'flatpickrStyle'
+  link.rel = 'stylesheet'
+  link.href = 'https://unpkg.com/flatpickr@4.6.13/dist/flatpickr.min.css'
+  document.head.append(link)
+}
 
 import { createFeppla } from '../../../src/feppla.js'
 const { ref, dom: { text, when }, dev } = createFeppla()

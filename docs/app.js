@@ -1,7 +1,12 @@
 import { ref, repeat, when, dev } from './feppla.js'
 import { Example } from './components/Example.js'
-import packageJson from '../package.json' with { type: 'json' }
+//import packageJson from '../package.json' with { type: 'json' }
 import { examples } from './examples.js'
+
+// TODO: Fix properly without import attributes
+const packageJson = {
+  version: '0.1.0'
+}
 
 ref(document)
   .property('title', () => location.hash 

@@ -1,4 +1,4 @@
-import { checkAddedNode, nextFrame, strictEquals, observeRootForAddedNodes } from "./utils.js"
+import { checkAddedNode, nextFrame, strictEquals, observeRootForAddedNodes, InterimPromise } from "./utils.js"
 import { logError } from "./log.js"
 
 let refIdGenerator = 0
@@ -123,9 +123,44 @@ export const createRef = (extensions) => {
     }
 
     reactive(getReactive, callback) {
+      let pending
+
       return this.live((el) => { 
-        const value = getReactive(el)
-        callback(el, value) 
+        const reactive = getReactive(el)
+
+        const isInterimPromise = reactive instanceof InterimPromise
+        if (isInterimPromise || reactive instanceof Promise) {
+          const promise = isInterimPromise ? reactive.promise : reactive
+          
+          if (!promise) {
+            callback(el, promise)
+            return
+          }
+
+          if (pending?.promise === promise) {
+            if (pending.resolved) {
+              callback(el, pending.value)
+            } else if (isInterimPromise) {
+              callback(el, reactive.interim)
+            }
+            return  
+          }
+
+          pending = { promise }
+
+          promise.then((value) => {
+            if (promise !== pending.promise) return
+            pending.resolved = true
+            pending.value = value
+          })          
+
+          if (isInterimPromise) {
+            callback(el, reactive.interim)
+          }
+        } else {
+          const value = reactive
+          callback(el, value) 
+        }
       })
     }
 
@@ -138,7 +173,7 @@ export const createRef = (extensions) => {
         ...(shorthand ? {} : getValueOrOptions)
       }
 
-      let oldValue = Symbol("[Feppla] Initial old value for set")
+      let oldValue = Symbol("[Feppla] Initial old value for watch()")
       return this.reactive(
         getValue,
         (el, newValue) => {

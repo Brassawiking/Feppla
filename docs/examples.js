@@ -27,6 +27,8 @@ export const examples = [
   'dom/when',
   'dom/when-svg',
 
+  'utils/pending',
+
   'pattern/component',
   
   'dev/syntax',

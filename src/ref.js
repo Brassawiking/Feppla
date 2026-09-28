@@ -94,11 +94,11 @@ export const createRef = (extensions) => {
         const cleanup = callback.call(this.state, el)
         if (!cleanup) return
 
-        nextFrame(function checkCleanup() {
+        nextFrame(async function checkCleanup() {
           if (el.isConnected) {
             nextFrame(checkCleanup)
           } else {
-            cleanup()
+            (await cleanup)()
           }
         })
       })

@@ -4,6 +4,7 @@ export const examples = [
   'ref/node-selector',
   'ref/state',
   'ref/init',
+  'ref/init-async',
   'ref/on',
   'ref/shadow',
   'ref/live',

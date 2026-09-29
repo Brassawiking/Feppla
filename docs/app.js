@@ -18,7 +18,7 @@ ref(document.head.appendChild(document.createElement("link")))
     const ctx = canvas.getContext('2d')
     ctx.lineWidth = 2
     ctx.strokeStyle = '#333'
-    ctx.fillStyle = `hsl(${(Math.random() * 50000) % 360}, 70%, 50%)`
+    ctx.fillStyle = `hsl(${Math.random() * 360}, 70%, 50%)`
     ctx.fillRect(0, 0, 16, 16)
     ctx.strokeRect(0, 0, 16, 16)
 

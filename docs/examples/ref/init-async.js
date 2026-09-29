@@ -14,17 +14,22 @@ export default ($example) => $example.innerHTML = dev.syntax.html`
   ${when(() => showContent, () => dev.syntax.html`
     <div ${ref()
       .init(async (el) => {
+        const cleanupFeedback = $example.querySelector('#init-async-cleanup-feedback')
+        cleanupFeedback.textContent = ''
+
         await new Promise((resolve) => { 
           setTimeout(resolve, 1000) 
         })
         el.textContent = '✅ Async initialized'
 
         return () => {
-          alert('✅ Cleanup')
+          cleanupFeedback.textContent = '✅ Cleanup done'
         }
       })
     }>
       Waiting for initialized
     </div>
   `)}
+
+  <div id="init-async-cleanup-feedback"></div>
 `

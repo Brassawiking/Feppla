@@ -68,8 +68,31 @@ export const createDom = (extensions) => {
               logError('html() end point is missing!')
               return
             }
+          },
+          appendBlock: (html) => {
+            const range = document.createRange()
+            range.selectNode(endNode)
+            endNode.before(range.createContextualFragment(html))
           }
         })
+      })
+    },
+
+    defer(templateOrGetTemplate, placeholderTemplate, getErrorTemplate) {
+      return this.dom.block(async ({ clearBlock, appendBlock }) => {
+        appendBlock(placeholderTemplate)
+        
+        let template
+        try {
+          template = typeof templateOrGetTemplate === 'function' 
+            ? await templateOrGetTemplate() 
+            : await templateOrGetTemplate
+        } catch(error) {
+          template = getErrorTemplate?.(error) ?? ''
+        }
+
+        clearBlock()
+        appendBlock(template)
       })
     },
 

@@ -22,6 +22,7 @@ export const examples = [
   'dom/modify',
   'dom/text',
   'dom/block',
+  'dom/defer',
   'dom/html',
   'dom/repeat',
   'dom/repeat-keyed',

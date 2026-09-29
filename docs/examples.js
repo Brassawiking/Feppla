@@ -23,6 +23,7 @@ export const examples = [
   'dom/text',
   'dom/block',
   'dom/defer',
+  'dom/defer-promise',
   'dom/html',
   'dom/repeat',
   'dom/repeat-keyed',

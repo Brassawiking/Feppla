@@ -20,14 +20,11 @@
 - Shorthand utility function?
 
 # DOM
+- döp om clearBlock och appendBlock till clear och append bara?
 - Pattern för att lösa Vue Suspense! (https://vuejs.org/guide/built-ins/suspense.html)
   - Fog för en primitive som tar emot async html template. Eventuellt också att ha an async-renderer som skapar ett promise med en toString som genererar error ifall den invokas.
   - Finns också caset med att komponent djupt ner i hierarkin vill vara async och trigga suspense boundary
     - Det skulle kunna lösas ifall kontext är tillgänligt iom vi behöver undvika prob/await drilling
-  - Det finns åtminstone behovet av en async template rendering, så det är en primitiv vi ska i DOM.
-    - dom.template() kan vi lägga tillbaka igen och ge den stöd för async.
-    - Återanvända pending() och InterimPromise och få fallback och handleError på köpet? 
-    - Inte bara att använda sig av HTML då som redan är watch baserad? Bara utöka med typ key?
 - Component injection för att undvika prop-drilling?
 - Stöd för Vue keepAlive eller är det något som extensions får beröra?
   - Vue keepAlive handlar bara om att cacha state, har inget med DOM att göra

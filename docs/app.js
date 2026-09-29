@@ -56,7 +56,7 @@ document.querySelector('#app').innerHTML = dev.syntax.html`
     // Latest
     "feppla": "github:brassawiking/feppla"
 
-    // Pinned version: <a href="https://github.com/Brassawiking/Feppla/tags" target="_blank">List of available versions</a>
+    // Pinned version (<a href="https://github.com/Brassawiking/Feppla/tags" target="_blank">available versions</a>)
     "feppla": "github:brassawiking/feppla#v0.1.0"
   }
 }

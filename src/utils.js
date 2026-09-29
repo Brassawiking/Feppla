@@ -60,10 +60,11 @@ export const observeRootForAddedNodes = (root) => {
 observeRootForAddedNodes(document)
 
 export class InterimPromise {
-  constructor(promise, interim) {
+  constructor(promise, interim, handleError) {
     this.promise = promise
     this.interim = interim
+    this.handleError = handleError
   }
 }
 
-export const pending = (promise, interim) => new InterimPromise(promise, interim)
+export const pending = (promise, interim, handleError) => new InterimPromise(promise, interim, handleError)

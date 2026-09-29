@@ -1,12 +1,8 @@
 import { ref, repeat, when, dev } from './feppla.js'
 import { Example } from './components/Example.js'
-//import packageJson from '../package.json' with { type: 'json' }
 import { examples } from './examples.js'
 
-// TODO: Fix properly without import attributes
-const packageJson = {
-  version: '0.1.0'
-}
+const version = fetch('./package.json').then((x) => x.json()).then(x => x.version)
 
 ref(document)
   .property('title', () => location.hash 
@@ -43,7 +39,9 @@ document.querySelector('#app').innerHTML = dev.syntax.html`
   <header>
     <h1>
       <span>Feppla JS</span>
-      <span>${packageJson.version}</span>
+      <span ${ref()
+        .property('textContent', () => version)
+      }></span>
     </h1>
 
     <span>[ˈfɛpːla] — Swedish slang for tinkering</span>
@@ -55,12 +53,11 @@ document.querySelector('#app').innerHTML = dev.syntax.html`
   <pre class="install-instructions"><code>${`\
 {
   "dependencies": {
+    // Latest
     "feppla": "github:brassawiking/feppla"
 
-    // Or pinned version (Online docs not guaranteed to match pinned version, see local docs instead)
-    // <a href="https://github.com/Brassawiking/Feppla/tags" target="_blank">https://github.com/Brassawiking/Feppla/tags</a>
-    
-    "feppla": "github:brassawiking/feppla#v${packageJson.version}"
+    // Pinned version: <a href="https://github.com/Brassawiking/Feppla/tags" target="_blank">List of available versions</a>
+    "feppla": "github:brassawiking/feppla#v0.1.0"
   }
 }
 `}</pre></code>

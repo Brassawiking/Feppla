@@ -152,7 +152,17 @@ export const createRef = (extensions) => {
             if (promise !== pending.promise) return
             pending.resolved = true
             pending.value = value
-          })          
+          }).catch((error) => {
+            if (promise !== pending.promise) return
+            
+            if (isInterimPromise && reactive.handleError) {
+              pending.resolved = true
+              pending.value = reactive.handleError(error)
+              return
+            }
+
+            logError('Unhandled rejected promise encountered in reactive()', error)
+          })
 
           if (isInterimPromise) {
             callback(el, reactive.interim)

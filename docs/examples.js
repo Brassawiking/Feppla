@@ -29,6 +29,7 @@ export const examples = [
   'dom/when-svg',
 
   'utils/pending',
+  'utils/pending-rejected',
 
   'pattern/component',
   

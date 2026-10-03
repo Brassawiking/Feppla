@@ -27,7 +27,7 @@ export default ($example) => $example.innerHTML = dev.syntax.html`
       `, dev.syntax.html`
         <div>Loading...</div>
       `, (error) => dev.syntax.html`
-        <div>Something went wrong</div>
+        <div>Something went wrong: ${error}</div>
       `)}
     </div>
   `)}

@@ -20,6 +20,10 @@
 - Shorthand utility function?
 
 # DOM
+- Öka upp concurreny för defer? Eller handlar det bara om bättre vetskap och att utvecklaren själv får optimera?
+  - Här finns möjlighet för egen tagged template literal för att registrera alla template promises concurrent!
+    - concurrent`...`
+    - Om man alltid använder concurrent så kommer djupa components alltid bubbla upp till närmaste defer.
 - döp om clearBlock och appendBlock till clear och append bara?
 - Pattern för att lösa Vue Suspense! (https://vuejs.org/guide/built-ins/suspense.html)
   - Fog för en primitive som tar emot async html template. Eventuellt också att ha an async-renderer som skapar ett promise med en toString som genererar error ifall den invokas.

@@ -68,3 +68,5 @@ export class InterimPromise {
 }
 
 export const pending = (promise, interim, handleError) => new InterimPromise(promise, interim, handleError)
+
+export const concurrent = async (strings, ...values) => String.raw(strings, ...await Promise.all(values))

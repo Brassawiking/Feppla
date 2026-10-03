@@ -32,6 +32,7 @@ export const examples = [
 
   'utils/pending',
   'utils/pending-rejected',
+  'utils/concurrent',
 
   'pattern/component',
   

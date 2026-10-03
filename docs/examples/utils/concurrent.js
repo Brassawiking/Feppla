@@ -1,11 +1,11 @@
 /* EXAMPLE */
-import { createFeppla } from '../../../src/feppla.js'
+import { createFeppla, concurrent } from '../../../src/feppla.js'
 const { ref, dom: { when, defer }, dev } = createFeppla()
 
 let showDeferred = true
 
-const fetchMessage = () => new Promise((resolve) => {
-  setTimeout(() => resolve('Hello!'), 1000)
+const delayedContent = (message) => new Promise((resolve) => {
+  setTimeout(() => resolve(`<div>${message}</div>`), 1000)
 })
 
 export default ($example) => $example.innerHTML = dev.syntax.html`
@@ -19,10 +19,13 @@ export default ($example) => $example.innerHTML = dev.syntax.html`
     <div>
       Deferred content:
 
-      ${defer(fetchMessage().then(message => dev.syntax.html`
-        <div>${message}</div>
-      `)
-      , dev.syntax.html`
+      ${defer(async () => concurrent`
+        ${delayedContent('A')}
+        ${delayedContent('B')}
+        ${delayedContent('C')}
+        ${delayedContent('D')}
+        ${delayedContent('E')}
+      `, dev.syntax.html`
         <div>Loading...</div>
       `, (error) => dev.syntax.html`
         <div>Something went wrong: ${error}</div>
